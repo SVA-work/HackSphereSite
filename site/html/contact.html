@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Контакты - HackSphere</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/contact.css">
+</head>
+<body>
+<header class="header">
+    <div class="header-container">
+        <div class="logo-container">
+            <a href="index.html" class="logo-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     class="logo-icon">
+                    <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path>
+                </svg>
+                <span class="logo-text">HackSphere</span>
+            </a>
+        </div>
+
+        <nav class="desktop-nav">
+            <a href="index.html" class="desktop-nav__link">Главная</a>
+            <a href="about.html" class="desktop-nav__link">О нас</a>
+            <a href="services.html" class="desktop-nav__link">Услуги</a>
+            <a href="news.html" class="desktop-nav__link">Новости</a>
+            <a href="contact.html" class="desktop-nav__link desktop-nav__link--active">Контакты</a>
+        </nav>
+
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="menu-icon">
+                <line x1="4" x2="20" y1="12" y2="12"></line>
+                <line x1="4" x2="20" y1="6" y2="6"></line>
+                <line x1="4" x2="20" y1="18" y2="18"></line>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"
+                 id="close-icon">
+                <path d="M18 6 6 18"></path>
+                <path d="m6 6 12 12"></path>
+            </svg>
+        </button>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <nav class="mobile-nav">
+            <a href="index.html" class="mobile-nav__link">Главная</a>
+            <a href="about.html" class="mobile-nav__link">О нас</a>
+            <a href="services.html" class="mobile-nav__link">Услуги</a>
+            <a href="news.html" class="mobile-nav__link">Новости</a>
+            <a href="contact.html" class="mobile-nav__link mobile-nav__link--active">Контакты</a>
+        </nav>
+    </div>
+</header>
+
+<main class="contact-content">
+    <div class="contact-container" id="contact-form">
+        <h1 class="contact-title">Контакты 📞</h1>
+
+        <div class="contact-form-wrapper">
+            <form id="contactForm" class="contact-form" novalidate>
+                <div class="contact-form-grid">
+                    <div class="form-field">
+                        <label for="firstName" class="form-label">Имя*</label>
+                        <input id="firstName" name="firstName" type="text" placeholder="Введите ваше имя" required
+                               minlength="2" maxlength="30" pattern="[A-Za-zА-Яа-яЁё\s]+" class="form-input">
+                        <div class="form-error-message">Пожалуйста, введите корректное имя (только буквы, от 2 до 30 символов)</div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="lastName" class="form-label">Фамилия</label>
+                        <input id="lastName" name="lastName" type="text" placeholder="Введите вашу фамилию" class="form-input">
+                    </div>
+
+                    <div class="form-field">
+                        <label for="email" class="form-label">Почта*</label>
+                        <input id="email" name="email" type="email" placeholder="example@mail.com" required class="form-input">
+                        <div class="form-error-message">Пожалуйста, введите корректный email</div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="phone" class="form-label">Телефон</label>
+                        <input id="phone" name="phone" type="tel" placeholder="+7 (123) 456-78-90"
+                               pattern="[\+]\d{1}\s[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}" class="form-input">
+                        <div class="form-error-message">Формат: +7 (123) 456-78-90</div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="subject" class="form-label">Тема*</label>
+                        <input id="subject" name="subject" type="text" placeholder="Тема вашего сообщения" required
+                               minlength="5" maxlength="100" class="form-input">
+                        <div class="form-error-message">Тема должна содержать от 5 до 100 символов</div>
+                    </div>
+
+                    <div class="form-field">
+                        <label for="message" class="form-label">Сообщение*</label>
+                        <textarea id="message" name="message" placeholder="Введите ваше сообщение" rows="5" required
+                                  minlength="10" maxlength="1000" class="form-input form-textarea"></textarea>
+                        <div class="form-error-message">Сообщение должно содержать от 10 до 1000 символов</div>
+                    </div>
+                </div>
+
+                <button type="submit" class="form-submit-button">
+                    Отправить
+                </button>
+            </form>
+        </div>
+    </div>
+</main>
+
+<script src="../js/script.js"></script>
+<script src="../js/contact_form_script.js"></script>
+</body>
+</html>

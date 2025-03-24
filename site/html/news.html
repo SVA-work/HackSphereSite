@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости - HackSphere</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/news.css">
+</head>
+<body>
+<header class="header">
+    <div class="header-container">
+        <div class="logo-container">
+            <a href="index.html" class="logo-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                     class="logo-icon">
+                    <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path>
+                </svg>
+                <span class="logo-text">HackSphere</span>
+            </a>
+        </div>
+
+        <nav class="desktop-nav">
+            <a href="index.html" class="desktop-nav__link">Главная</a>
+            <a href="about.html" class="desktop-nav__link">О нас</a>
+            <a href="services.html" class="desktop-nav__link">Услуги</a>
+            <a href="news.html" class="desktop-nav__link desktop-nav__link--active">Новости</a>
+            <a href="contact.html" class="desktop-nav__link">Контакты</a>
+        </nav>
+
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Menu">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="menu-icon">
+                <line x1="4" x2="20" y1="12" y2="12"></line>
+                <line x1="4" x2="20" y1="6" y2="6"></line>
+                <line x1="4" x2="20" y1="18" y2="18"></line>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"
+                 id="close-icon">
+                <path d="M18 6 6 18"></path>
+                <path d="m6 6 12 12"></path>
+            </svg>
+        </button>
+    </div>
+
+    <div class="mobile-menu" id="mobile-menu">
+        <nav class="mobile-nav">
+            <a href="index.html" class="mobile-nav__link">Главная</a>
+            <a href="about.html" class="mobile-nav__link">О нас</a>
+            <a href="services.html" class="mobile-nav__link">Услуги</a>
+            <a href="news.html" class="mobile-nav__link mobile-nav__link--active">Новости</a>
+            <a href="contact.html" class="mobile-nav__link">Контакты</a>
+        </nav>
+    </div>
+</header>
+
+<main class="news-content">
+    <div class="news-container">
+        <h1 class="news-title">Новости 🚀</h1>
+
+        <div class="news-list">
+            <div class="news-item">
+                <div class="news-item-header">
+                    <div class="news-date">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                             class="news-date-icon">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        15.12.2023
+                        <span class="news-emoji">🚀</span>
+                    </div>
+                    <h2 class="news-item-title">Мы провели хакатон с участием 500 разработчиков!</h2>
+                </div>
+                <div class="news-item-content">
+                    <p class="news-item-text">Масштабное мероприятие собрало участников из 20 городов России и стран СНГ.</p>
+                </div>
+                <div class="news-item-footer">
+                    <a href="#" class="news-item-link">Читать полностью</a>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <div class="news-item-header">
+                    <div class="news-date">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                             class="news-date-icon">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        20.11.2023
+                        <span class="news-emoji">🤖</span>
+                    </div>
+                    <h2 class="news-item-title">Открыта регистрация на кейс-чемпионат по AI</h2>
+                </div>
+                <div class="news-item-content">
+                    <p class="news-item-text">Приглашаем специалистов по искусственному интеллекту принять участие в нашем новом мероприятии.</p>
+                </div>
+                <div class="news-item-footer">
+                    <a href="#" class="news-item-link">Читать полностью</a>
+                </div>
+            </div>
+
+            <div class="news-item">
+                <div class="news-item-header">
+                    <div class="news-date">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
+                             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                             class="news-date-icon">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                        </svg>
+                        05.10.2023
+                        <span class="news-emoji">✨</span>
+                    </div>
+                    <h2 class="news-item-title">Итоги конференции FutureTech 2023</h2>
+                </div>
+                <div class="news-item-content">
+                    <p class="news-item-text">Более 1000 участников, 30 докладчиков и множество новых идей для развития IT-индустрии.</p>
+                </div>
+                <div class="news-item-footer">
+                    <a href="#" class="news-item-link">Читать полностью</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<script src="../js/script.js"></script>
+</body>
+</html>

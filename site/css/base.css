@@ -1,0 +1,39 @@
+.text-red-500 {
+  color: #ef4444;
+}
+
+.text-blue-500 {
+  color: #3b82f6;
+}
+
+.text-orange-500 {
+  color: #f97316;
+}
+
+.text-cyan-500 {
+  color: #06b6d4;
+}
+
+.bg-red-500 {
+  background-color: #ef4444;
+}
+
+svg.text-red-500 {
+  color: #ef4444;
+}
+
+svg.text-blue-500 {
+  color: #3b82f6;
+}
+
+svg.text-orange-500 {
+  color: #f97316;
+}
+
+svg.text-cyan-500 {
+  color: #06b6d4;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+}
