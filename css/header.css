@@ -1,43 +1,49 @@
 .header {
-    position: sticky;
-    top: 0;
-    z-index: 50;
-    width: 100%;
-    border-bottom: 1px solid #e5e7eb;
-    background-color: white;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  width: 100%;
+  border-bottom: 1px solid #e5e7eb;
+  background-color: white;
+  transition: box-shadow 0.3s ease;
 }
 
-.header-container {
-    display: flex;
-    height: 4rem;
-    align-items: center;
-    justify-content: space-between;
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
-    margin-left: auto;
-    margin-right: auto;
+.header--fixed {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.header__container {
+  display: flex;
+  height: 4rem;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .logo-container {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .logo-icon {
-    color: #ef4444;
+  color: #ef4444;
+  transition: transform 0.3s ease;
 }
 
 .logo-text {
-    font-weight: 700;
-    font-size: 1.25rem;
-    line-height: 1.75rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
 }
 
 .desktop-nav {
   display: none;
   gap: 1.5rem;
-  text-decoration: none
+  text-decoration: none;
 }
 
 @media (min-width: 768px) {
@@ -107,15 +113,35 @@
 }
 
 @media (max-width: 768px) {
-    .menu-toggle {
-        display: block;
-    }
+  .menu-toggle {
+    display: block;
+  }
 
-    .mobile-menu--visible {
-        display: block;
-    }
+  .mobile-menu--visible {
+    display: block;
+  }
 
-    .menu-icon--hidden {
-        display: none;
-    }
+  .menu-icon--hidden {
+    display: none;
+  }
+}
+
+.logo-icon:hover {
+  transform: scale(1.1);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.animated-logo {
+  animation: pulse 2s infinite;
 }

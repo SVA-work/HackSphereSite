@@ -15,15 +15,18 @@
     <link rel="stylesheet" href="css/base.css">
     <link rel="stylesheet" href="css/header.css">
     <link rel="stylesheet" href="css/contact.css">
+    <link rel="stylesheet" href="css/popup.css">
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/countdown-popup.css">
 </head>
 <body>
 <header class="header">
-    <div class="header-container">
+    <div class="header__container">
         <div class="logo-container">
             <a href="index.html" class="logo-container">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                      stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                     class="logo-icon">
+                     class="logo-icon" id="animated-logo">
                     <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path>
                 </svg>
                 <span class="logo-text">HackSphere</span>
@@ -35,6 +38,7 @@
             <a href="about.html" class="desktop-nav__link">О нас</a>
             <a href="services.html" class="desktop-nav__link">Услуги</a>
             <a href="news.html" class="desktop-nav__link">Новости</a>
+            <a href="gallery.html" class="desktop-nav__link">Галерея</a>
             <a href="contact.html" class="desktop-nav__link desktop-nav__link--active">Контакты</a>
         </nav>
 
@@ -60,6 +64,7 @@
             <a href="about.html" class="mobile-nav__link">О нас</a>
             <a href="services.html" class="mobile-nav__link">Услуги</a>
             <a href="news.html" class="mobile-nav__link">Новости</a>
+            <a href="gallery.html" class="mobile-nav__link">Галерея</a>
             <a href="contact.html" class="mobile-nav__link mobile-nav__link--active">Контакты</a>
         </nav>
     </div>
@@ -75,8 +80,8 @@
                     <div class="form-field">
                         <label for="firstName" class="form-label">Имя*</label>
                         <input id="firstName" name="firstName" type="text" placeholder="Введите ваше имя" required
-                               minlength="2" maxlength="30" pattern="[A-Za-zА-Яа-яЁё\s]+" class="form-input">
-                        <div class="form-error-message">Пожалуйста, введите корректное имя (только буквы, от 2 до 30 символов)</div>
+                               class="form-input">
+                        <div class="form-error-message" id="firstNameError"></div>
                     </div>
 
                     <div class="form-field">
@@ -87,32 +92,32 @@
                     <div class="form-field">
                         <label for="email" class="form-label">Почта*</label>
                         <input id="email" name="email" type="email" placeholder="example@mail.com" required class="form-input">
-                        <div class="form-error-message">Пожалуйста, введите корректный email</div>
+                        <div class="form-error-message" id="emailError"></div>
                     </div>
 
                     <div class="form-field">
-                        <label for="phone" class="form-label">Телефон</label>
+                        <label for="phone" class="form-label">Телефон*</label>
                         <input id="phone" name="phone" type="tel" placeholder="+7 (123) 456-78-90"
-                               pattern="[\+]\d{1}\s[\(]\d{3}[\)]\s\d{3}[\-]\d{2}[\-]\d{2}" class="form-input">
-                        <div class="form-error-message">Формат: +7 (123) 456-78-90</div>
+                               required class="form-input">
+                        <div class="form-error-message" id="phoneError"></div>
                     </div>
 
                     <div class="form-field">
                         <label for="subject" class="form-label">Тема*</label>
                         <input id="subject" name="subject" type="text" placeholder="Тема вашего сообщения" required
-                               minlength="5" maxlength="100" class="form-input">
-                        <div class="form-error-message">Тема должна содержать от 5 до 100 символов</div>
+                               class="form-input">
+                        <div class="form-error-message" id="subjectError"></div>
                     </div>
 
                     <div class="form-field">
                         <label for="message" class="form-label">Сообщение*</label>
                         <textarea id="message" name="message" placeholder="Введите ваше сообщение" rows="5" required
-                                  minlength="10" maxlength="1000" class="form-input form-textarea"></textarea>
-                        <div class="form-error-message">Сообщение должно содержать от 10 до 1000 символов</div>
+                                  class="form-input form-textarea"></textarea>
+                        <div class="form-error-message" id="messageError"></div>
                     </div>
                 </div>
 
-                <button type="submit" class="form-submit-button">
+                <button type="submit" class="form-submit-button" id="submitButton">
                     Отправить
                 </button>
             </form>
@@ -120,7 +125,55 @@
     </div>
 </main>
 
+<div class="contact-popup" id="contact-popup">
+    <div class="contact-popup__overlay" id="contact-popup__overlay"></div>
+    <div class="contact-popup__content">
+        <button class="contact-popup__close" id="contact-popup__close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 6 6 18"></path>
+                <path d="m6 6 12 12"></path>
+            </svg>
+        </button>
+        <h3 class="contact-popup__title">Связаться с нами</h3>
+        <form id="contactPopupForm" class="contact-popup__form">
+            <div class="form-field">
+                <label for="popupName" class="form-label">Имя*</label>
+                <input id="popupName" name="name" type="text" placeholder="Введите ваше имя" required class="form-input">
+                <div class="form-error-message" id="popupNameError"></div>
+            </div>
+            <div class="form-field">
+                <label for="popupEmail" class="form-label">Почта*</label>
+                <input id="popupEmail" name="email" type="email" placeholder="example@mail.com" required class="form-input">
+                <div class="form-error-message" id="popupEmailError"></div>
+            </div>
+            <div class="form-field">
+                <label for="popupPhone" class="form-label">Телефон*</label>
+                <input id="popupPhone" name="phone" type="tel" placeholder="+7 (123) 456-78-90" required class="form-input">
+                <div class="form-error-message" id="popupPhoneError"></div>
+            </div>
+            <div class="form-field">
+                <label for="popupMessage" class="form-label">Сообщение*</label>
+                <textarea id="popupMessage" name="message" placeholder="Введите ваше сообщение" rows="4" required class="form-input form-textarea"></textarea>
+                <div class="form-error-message" id="popupMessageError"></div>
+            </div>
+            <button type="submit" class="form-submit-button" id="popupSubmitButton">
+                Отправить
+            </button>
+        </form>
+    </div>
+</div>
+
+<div class="floating-button" id="contact-button">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+    </svg>
+</div>
+
 <script src="js/script.js"></script>
+<script src="js/popup_form.js"></script>
 <script src="js/contact_form_script.js"></script>
+<script src="js/countdown-popup.js"></script>
 </body>
 </html>
